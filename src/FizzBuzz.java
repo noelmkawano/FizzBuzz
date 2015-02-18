@@ -1,26 +1,35 @@
-import java.util.Scanner;
-
 /**
- * Created by NOEL on 2/4/2015.
+ * Solves the FizzBuzz WOD Problem.
  */
 public class FizzBuzz {
+
+  /**
+   * Computes the FizzBuzz function up to 100.
+   * @param args Ignored.
+   */
   public static void main(String[] args) {
-    System.out.print("Enter number");
-    Scanner in= new Scanner(System.in);
-    if (in.hasNextInt()){
-      int value=in.nextInt();
-      if(value%15==0){
-        System.out.print("FizzBuzz");
-        return;
-      }
-      if(value%3==0){
-        System.out.print("Fizz");
-        return;
-      }
-      if(value%5==0) {
-        System.out.print("Buzz");
-        return;
-      }
+    for (int i = 1; i <= 100; i++) {
+      System.out.println(fizzBuzzMapper(i));
+    }
+  }
+
+  /**
+   * Find the divisibility of every number by 3, 5, and 15.
+   * @param i upper bound.
+   * @return the answer.
+   */
+  public static String fizzBuzzMapper(int i) {
+    if (((i % 3) == 0) && ((i % 5) == 0)) {
+      return "FizzBuzz";
+    }
+    else if ((i % 5) == 0) {
+      return "Buzz";
+    }
+    else if ((i % 3) == 0) {
+      return "Fizz";
+    }
+    else {
+      return Integer.toString(i);
     }
   }
 }
